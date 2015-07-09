@@ -24,13 +24,22 @@ class Chain
     
     protected $container;
     
+    protected $requires;
+    
     protected $instance;
+    
+    protected $forgiving = false;
     
     protected $parameters = [];
     
     public function __construct($container = null)
     {
         $this->container = $container;
+    }
+    
+    public function requires($class)
+    {
+        $this->requires = $class;
     }
     
     public function on($class)
@@ -47,6 +56,11 @@ class Chain
         return $this;
     }
     
+    public function forgiving()
+    {
+        $this->forgiving = true;
+    }
+    
     public function with($parameters)
     {
         $this->parameters = func_get_args();
@@ -56,7 +70,15 @@ class Chain
     
     public function run()
     {
+        if ($this->mustBe !== null && $this->instance ! instanceof $this->mustBe) {
+            throw new WrongClassException(get_class($this->instance), $this->mustBe);
+        }
+        
         return array_reduce($this->methods, function($results, $method) {
+            if (!method_exists($this->instance, $method) && !$this->forgiving) {
+                throw new InvalidMethodException(get_class($this->instance), $method);
+            }
+            
             $results->addResult($method, call_user_func_array([$this->instance, $method], $this->parameters));
             
             return $results;
