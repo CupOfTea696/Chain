@@ -1,6 +1,7 @@
 {
     "name": "cupoftea/chain",
     "description": "Call a chain of methods on an object",
+    "keywords": ["method", "chaining", "tool"],
     "require": {
         "cupoftea/package": "^1.2"
     },
