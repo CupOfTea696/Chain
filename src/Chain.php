@@ -1,9 +1,8 @@
 <?php namespace CupOfTea\Chain;
 
-use CupOfTea\Chain\Results;
 use CupOfTea\Package\Package;
 
-class Chain
+class Chain implements ResultAccess
 {
     
     use Package;
@@ -97,4 +96,20 @@ class Chain
     {
         return $destination($this->run());
     }
+    
+    public function getResult($result)
+    {
+        return $this->run()->getResult($result);
+    }
+    
+    public function getResults()
+    {
+        return $this->run()->getResults();
+    }
+    
+    public function toArray()
+    {
+        return $this->run()->toArray();
+    }
+    
 }
