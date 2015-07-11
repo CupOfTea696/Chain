@@ -1,4 +1,4 @@
-<?php namespace CupOfTea\Chain;
+<?php namespace CupOfTea\Chain\Exceptions;
 
 use Exception;
 

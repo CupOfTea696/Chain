@@ -1,5 +1,7 @@
 <?php namespace CupOfTea\Chain;
 
+use CupOfTea\Chain\Contracts\ResultAccess;
+
 class Results implements ResultAccess
 {
     

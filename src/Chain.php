@@ -1,6 +1,9 @@
 <?php namespace CupOfTea\Chain;
 
 use CupOfTea\Package\Package;
+use CupOfTea\Chain\Contracts\ResultAccess;
+use CupOfTea\Chain\Exceptions\WrongClassException;
+use CupOfTea\Chain\Exceptions\InvalidMethodException;
 
 class Chain implements ResultAccess
 {
