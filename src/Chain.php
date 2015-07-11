@@ -19,7 +19,7 @@ class Chain implements ResultAccess
      *
      * @const string
      */
-    const VERSION = '1.1.2';
+    const VERSION = '1.2.0';
     
     protected $container;
     
