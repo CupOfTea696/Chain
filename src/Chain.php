@@ -40,6 +40,8 @@ class Chain
     public function requires($class)
     {
         $this->requires = $class;
+        
+        return $this;
     }
     
     public function on($class)
