@@ -70,8 +70,8 @@ class Chain
     
     public function run()
     {
-        if ($this->mustBe !== null && $this->instance ! instanceof $this->mustBe) {
-            throw new WrongClassException(get_class($this->instance), $this->mustBe);
+        if ($this->requires !== null && !$this->instance instanceof $this->requires) {
+            throw new WrongClassException(get_class($this->instance), $this->requires);
         }
         
         return array_reduce($this->methods, function($results, $method) {
