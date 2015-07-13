@@ -1,6 +1,6 @@
 #!/bin/bash
     
-    cd /Users/CupOfTea696/Documents/_Work/Package
+    cd /Users/CupOfTea696/Documents/_Work/Chain
     
     # Build the site
     echo "build start"
