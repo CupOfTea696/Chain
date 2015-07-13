@@ -1,12 +1,12 @@
 # Site settings
 
 project:
-    name: "Package"
-    alt_name: "Package"
-    tagline: Description
+    name: "Chain"
+    alt_name: "Chain"
+    tagline: Call a chain of methods on an object
     author: "CupOfTea696"
-    github: "https://github.com/CupOfTea696/Package/"
-    package: "cupoftea/package"
+    github: "https://github.com/CupOfTea696/Chain/"
+    package: "cupoftea/chain"
 navigation:
   - name: Documentation
     url: "docs"
