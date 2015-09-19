@@ -23,12 +23,12 @@ $ composer require cupoftea/chain ^1.2
 ```
 
 ```php
-$chain = new Chain();
-$chain->requires(MyInterface::class)
+$chain = new CupOfTea\Chain\Chain();
+$results = $chain->requires(MyInterface::class)
     ->on(MyClass::class))
     ->call('method1', 'method2')
     ->with($parameter1, $parameter2)
     ->run();
 
-$method1_result = $chain->getResult('method1');
+$method1_result = $results->getResult('method1');
 ```
