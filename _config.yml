@@ -16,6 +16,14 @@ navigation:
       - name: Installation
         type: page
         url: "installation"
+      - name: Usage
+        type: category
+      - name: Using Chain
+        type: page
+        url: "usage"
+      - name: Method Results
+        type: page
+        url: "results"
   - name: API
     url: "docs/api"
 url: "http://chain.cupoftea.io"
