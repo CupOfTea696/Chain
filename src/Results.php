@@ -4,16 +4,15 @@ use CupOfTea\Chain\Contracts\ResultAccess;
 
 class Results implements ResultAccess
 {
-    
     /**
-     * Wether or not Results can be added to the Results object
+     * Wether or not Results can be added to the Results object.
      *
      * @protected bool
      */
     protected $open = true;
     
     /**
-     * The Results contained in the Results object
+     * The Results contained in the Results object.
      *
      * @protected Array
      */
@@ -27,7 +26,7 @@ class Results implements ResultAccess
      */
     public function addResult($result, $value)
     {
-        if (!$this->open) {
+        if (! $this->open) {
             return;
         }
         
@@ -37,7 +36,7 @@ class Results implements ResultAccess
     }
     
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getResult($result)
     {
@@ -45,7 +44,7 @@ class Results implements ResultAccess
     }
     
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getResults()
     {
@@ -65,7 +64,7 @@ class Results implements ResultAccess
     }
     
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function toArray()
     {
@@ -93,5 +92,4 @@ class Results implements ResultAccess
     {
         return isset($this->results[$result]);
     }
-    
 }

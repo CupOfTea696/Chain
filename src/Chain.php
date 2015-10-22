@@ -8,69 +8,68 @@ use CupOfTea\Chain\Exceptions\InvalidContainerException;
 
 class Chain implements ResultAccess
 {
-    
     use Package;
     
     /**
-     * Package Name
+     * Package Name.
      *
      * @const string
      */
     const PACKAGE = 'CupOfTea/Chain';
     
     /**
-     * Package Version
+     * Package Version.
      *
      * @const string
      */
     const VERSION = '1.2.1';
     
     /**
-     * Container Instance
+     * Container Instance.
      * 
      * @protected Object
      */
     protected $container;
     
     /**
-     * Required Class
+     * Required Class.
      * 
      * @protected string
      */
     protected $requires;
     
     /**
-     * Instance of the Class
+     * Instance of the Class.
      * 
      * @protected Object 
      */
     protected $instance;
     
     /**
-     * Forgiving mode
+     * Forgiving mode.
      * 
      * @protected bool
      */
     protected $forgiving = false;
     
     /**
-     * Method parameters
+     * Method parameters.
      * 
      * @protected Array
      */
     protected $parameters = [];
     
     /**
-     * Create a new Chain Instance
+     * Create a new Chain Instance.
      *
-     * @param  Object $container Container instance used to build the class. Must contain make method to build the class. Suggested container: Illuminate\Container.
+     * @param  object $container Container instance used to build the class. Must contain make method to build the class. Suggested container: Illuminate\Container.
      * @throws InvalidContainerException if the provided container does not contain a make method.
      */
     public function __construct($container = null)
     {
         $this->container = $container;
         
-        if (!method_exists($container, 'make')) {
+        if (! method_exists($container, 'make')) {
             throw new InvalidContainerException($container);
         }
     }
@@ -148,12 +147,12 @@ class Chain implements ResultAccess
      */
     public function run()
     {
-        if ($this->requires !== null && !$this->instance instanceof $this->requires) {
+        if ($this->requires !== null && ! $this->instance instanceof $this->requires) {
             throw new WrongClassException(get_class($this->instance), $this->requires);
         }
         
-        return array_reduce($this->methods, function($results, $method) {
-            if (!method_exists($this->instance, $method) && !$this->forgiving) {
+        return array_reduce($this->methods, function ($results, $method) {
+            if (! method_exists($this->instance, $method) && ! $this->forgiving) {
                 throw new InvalidMethodException(get_class($this->instance), $method);
             }
             
@@ -188,7 +187,7 @@ class Chain implements ResultAccess
     /**
      * Run the Chain and return the results as an Array.
      *
-     * @return Array Results of the Chained methods.
+     * @return array Results of the Chained methods.
      */
     public function getResults()
     {
@@ -204,5 +203,4 @@ class Chain implements ResultAccess
     {
         return $this->run()->toArray();
     }
-    
 }

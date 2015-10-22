@@ -2,7 +2,6 @@
 
 interface ResultAccess
 {
-    
     /**
      * Return the result with the specified name.
      *
@@ -14,7 +13,7 @@ interface ResultAccess
     /**
      * Return all results as an associative array where the keys are the name of the result.
      *
-     * @return Array The results
+     * @return array The results
      */
     public function getResults();
     
@@ -24,5 +23,4 @@ interface ResultAccess
      * @see CupOfTea\Chain\Contracts\ResultAccess::getResults()
      */
     public function toArray();
-    
 }
