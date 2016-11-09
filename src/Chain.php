@@ -26,35 +26,35 @@ class Chain implements ResultAccess
     
     /**
      * Container Instance.
-     * 
+     *
      * @protected Object
      */
     protected $container;
     
     /**
      * Required Class.
-     * 
+     *
      * @protected string
      */
     protected $requires;
     
     /**
      * Instance of the Class.
-     * 
-     * @protected Object 
+     *
+     * @protected Object
      */
     protected $instance;
     
     /**
      * Forgiving mode.
-     * 
+     *
      * @protected bool
      */
     protected $forgiving = false;
     
     /**
      * Method parameters.
-     * 
+     *
      * @protected Array
      */
     protected $parameters = [];
